@@ -47,7 +47,7 @@ NachOSThread::NachOSThread(char* threadName)
     }
     else
     {
-    	ppid=//Pid of current thread i.e, parent how to access it?;
+    	ppid=currentThread->pid;
     }
 #ifdef USER_PROGRAM
     space = NULL;
