@@ -23,7 +23,7 @@
 #define STACK_FENCEPOST 0xdeadbeef	// this is put at the top of the
 					// execution stack, for detecting 
 					// stack overflows
-
+int NachOSThread::TotalProcesses=0;
 //----------------------------------------------------------------------
 // NachOSThread::NachOSThread
 // 	Initialize a thread control block, so that we can then call
@@ -38,6 +38,17 @@ NachOSThread::NachOSThread(char* threadName)
     stackTop = NULL;
     stack = NULL;
     status = JUST_CREATED;
+    
+    TotalProcesses++;
+    pid=TotalProcesses;
+    if(pid==1)
+    {
+    	ppid=0;
+    }
+    else
+    {
+    	ppid=//Pid of current thread i.e, parent how to access it?;
+    }
 #ifdef USER_PROGRAM
     space = NULL;
 #endif
